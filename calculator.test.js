@@ -17,3 +17,12 @@ describe("question 1", () => {
     expect(stringAdd("2,3,null")).toBe(5);
   });
 });
+
+describe("question 2", () => {
+  test('Any amount of numbers separated by comma will return their sum', () => {
+    expect(stringAdd("1,2,3,4,5")).toBe(15);
+  });
+  test('Any amount of large numbers separated by comma will return their sum', () => {
+    expect(stringAdd("1000,200,39999900,400,50")).toBe(40001550);
+  });
+});
