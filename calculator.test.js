@@ -14,7 +14,7 @@ describe("question 1", () => {
   });
 
   test('Two number seprated by comma and passed some garbage value', () => {
-    expect(stringAdd("2,3,null")).toBe(5);
+    expect(() => stringAdd("2,3,null")).toThrow("Invalid input");
   });
 });
 
@@ -26,3 +26,13 @@ describe("question 2", () => {
     expect(stringAdd("1000,200,39999900,400,50")).toBe(40001550);
   });
 });
+
+describe("question 3", () => {
+  test('New lines between numbers will return correct sum for valid inputs', () => {
+    expect(stringAdd("1\n2,3")).toBe(6);
+  });
+  
+  test('Error is thrown for invalid input with comma followed by new line', () => {
+    expect(() => stringAdd("1,\n")).toThrow("Invalid input");
+  });
+})
