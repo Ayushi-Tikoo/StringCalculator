@@ -36,3 +36,9 @@ describe("question 3", () => {
     expect(() => stringAdd("1,\n")).toThrow("Invalid input");
   });
 })
+
+describe(("question 4"), () => {
+  test('Correct sum is returned for valid input with custom delimiter', () => {
+    expect(stringAdd("//,;\n1,;2,;3,;4,;5,;6,;7")).toBe(28);
+  });
+})
