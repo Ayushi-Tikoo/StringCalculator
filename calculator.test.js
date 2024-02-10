@@ -42,3 +42,9 @@ describe(("question 4"), () => {
     expect(stringAdd("//,;\n1,;2,;3,;4,;5,;6,;7")).toBe(28);
   });
 })
+
+describe(("question 5"), () => {
+  test('Negative numbers will throw an error displaying all negative numbers', () => {
+    expect(() => stringAdd("1,-2,3,-4")).toThrow("Negative numbers not allowed: -2, -4");
+  });
+})

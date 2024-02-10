@@ -19,12 +19,19 @@ function stringAdd(numbers) {
 
   const numArray = numbersString.split(new RegExp(`[${delimiter}\\n]+`));
   let sum = 0;
+  const negatives = []
   for (let i = 0; i < numArray.length; i++) {
-    if (parseInt(numArray[i])) {
-      sum += parseInt(numArray[i]);
+    const num = parseInt(numArray[i]);
+    if (num < 0) {
+      negatives.push(num);
+    } else if (num >= 0) {
+      sum += num;
     } else {
       throw new Error("Invalid input");
     }
+  }
+  if (negatives.length > 0) {
+    throw new Error(`Negative numbers not allowed: ${negatives.join(", ")}`);
   }
   return sum;
 }
