@@ -18,14 +18,15 @@ function stringAdd(numbers) {
   }
 
   const numArray = numbersString.split(new RegExp(`[${delimiter}\\n]+`));
-  let sum = 0;
+  let result = 0;
+  let multiply = 1;
   const negatives = []
   for (let i = 0; i < numArray.length; i++) {
     const num = parseInt(numArray[i]);
     if (num < 0) {
       negatives.push(num);
     } else if (num >= 0) {
-      sum += num;
+      delimiter == "*" ? multiply *= num : result += num;
     } else {
       throw new Error("Invalid input");
     }
@@ -33,7 +34,6 @@ function stringAdd(numbers) {
   if (negatives.length > 0) {
     throw new Error(`Negative numbers not allowed: ${negatives.join(", ")}`);
   }
-  return sum;
+  return delimiter == "*" ? multiply : result;
 }
-
 module.exports = stringAdd;

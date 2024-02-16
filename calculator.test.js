@@ -48,3 +48,9 @@ describe(("question 5"), () => {
     expect(() => stringAdd("1,-2,3,-4")).toThrow("Negative numbers not allowed: -2, -4");
   });
 })
+
+describe(("question 6"), () => {
+  test('* delimiter should return products of numbers', () => {
+    expect(stringAdd("//*\n1*2*3")).toBe(6);
+  });
+})
